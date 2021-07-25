@@ -1,0 +1,55 @@
+﻿
+@{
+  bool isLogin = false;
+}
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom mb-2" style="background-color: #3B5998">
+    <div class="container">
+      <img src="~/images/480px-Facebook_logo_(square).png" class="mr-2" style="height:48px; width:48px;" />
+      <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Thecakmak</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+        @if (!isLogin)
+        {
+          <ul class="navbar-nav flex-grow-1 justify-content-end align-items-center">
+            <li class="nav-item">
+              <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">About</a>
+            </li>
+          </ul>
+        }
+        else
+        {
+      <ul class="navbar-nav flex-grow-1 justify-content-end align-items-center">
+        <li class="nav-item">
+          <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">All Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="https://lh3.googleusercontent.com/ogw/ADea4I6yDFdD7WjxYASWjP7qLW18XGJa-mNCqwCZn0Rfag=s32-c-mo" class="nav-item rounded-circle border border-dark border border" alt="Profile Page" />
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+
+        </li>
+      </ul>
+        }
+      </div>
+    </div>
+  </nav>
+</header>

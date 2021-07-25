@@ -1,0 +1,64 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registeration";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+          <div class="eg-container-dashed">
+            <div class="eg-container-title">Register</div>
+            <div class="eg-container-body text-right">
+              <div asp-validation-summary="All" class="text-danger"></div>
+              <div class="form-group">
+                <label asp-for="Input.Email">Email:</label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                <label asp-for="Input.Password">Password:</label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                <label asp-for="Input.ConfirmPassword">ConfirmPassword:</label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn eg-btn-primary">Register</button>
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+    <div class="eg-container">
+      <div class="eg-container-title">Welcome to Thecakmak!</div>
+      <br />
+      <div class="eg-container-body">
+        <h2 class="text-center font-weight-bolder">[ Welcome to Thecakmak ]</h2>
+        <p>
+          TheCakmak is an online directory that connects people through social networks in the world.
+        </p>
+        <p>
+          You can use Thefacebook for:
+          <ul>
+            <li>
+              Search for people who match your interests
+            </li>
+            <li>
+              Write articles on the topics you want.
+            </li>
+          </ul>
+        </p>
+        <p>
+          To get started, click below to register. If you have registered before, you can login.
+        </p>
+      </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
