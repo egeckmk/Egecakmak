@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Egecakmak.Dal.UnitOfWork
+namespace Egecakmak.Dal.UoW
 {
   public interface IUnitOfWork : IDisposable
   {

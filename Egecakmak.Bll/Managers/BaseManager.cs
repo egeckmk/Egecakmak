@@ -1,7 +1,7 @@
-﻿using Egecakmak.Dal.UnitOfWork;
+﻿using Egecakmak.Dal.UoW;
 using System;
 
-namespace UMA.Portal.Bll.Managers
+namespace Egecakmak.Portal.Bll.Managers
 {
   public abstract class BaseManager
   {

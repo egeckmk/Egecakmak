@@ -6,6 +6,7 @@
   <title>@ViewData["Title"] - Egecakmak.Web</title>
   <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="~/css/site.css" />
+  <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet">
 </head>
 <body>
   <partial name="_TopBar" />
@@ -20,6 +21,10 @@
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="~/js/site.js" asp-append-version="true"></script>
+  <script src="~/js/mvc-grid/mvc-grid.js"></script>
+  <script>
+    document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+  </script>
   @RenderSection("Scripts", required: false)
 </body>
 </html>

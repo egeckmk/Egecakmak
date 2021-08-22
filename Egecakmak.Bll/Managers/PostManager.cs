@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UMA.Portal.Bll.Managers;
+using Egecakmak.Portal.Bll.Managers;
 
 namespace Egecakmak.Bll.Managers
 {
@@ -19,7 +19,6 @@ namespace Egecakmak.Bll.Managers
     public PostManager(IServiceProvider provider) : base(provider)
     {
       _postRepository = UnitOfWork.GetRepository<TbPosts, int>();
-
     }
 
 
@@ -60,32 +59,24 @@ namespace Egecakmak.Bll.Managers
     }
 
     /// <summary>
-    /// Get Post List Paginated
+    /// Return all posts quaryable
     /// </summary>
-    /// <param name="paginate"></param>
-    /// <param name="page"></param>
-    /// <param name="pageSize"></param>
     /// <returns></returns>
-    public async Task<IEnumerable<PostDto>> GetPostListPaged(bool paginate = true, int page = 1, int pageSize = 20)
+    public IQueryable<PostDto> GetAllPostQueryable()
     {
+      var query = _postRepository.GetAll().Include(i => i.Member).Select(s => new PostDto
       {
-        var query = _postRepository.Find(w => !w.IsDeleted).Select(s => s.ToAnotherEntity<PostDto>());
-
-        if (paginate)
-        {
-          query = query.OrderBy(o => o.Id).Skip((page - 1) * pageSize).Take(20);
-        }
-        return await query.ToListAsync();
-      }
-    }
-
-    /// <summary>
-    /// Get Post Quaryable
-    /// </summary>
-    /// <returns></returns>
-    public IQueryable<TbPosts> GetCustomersQueryable()
-    {
-      var query = _postRepository.GetQueryable<TbPosts>().Where(w => !w.IsDeleted);
+        Id = s.Id,
+        Title = s.Title,
+        SubTitle = s.SubTitle,
+        Content = s.Content,
+        CreateTime = s.CreateTime,
+        UpdateTime = s.UpdateTime,
+        IsDeleted = s.IsDeleted,
+        IsActive = s.IsActive,
+        CreatedBy = s.CreatedBy,
+        Member = s.Member
+      }).AsQueryable();
       return query;
     }
 

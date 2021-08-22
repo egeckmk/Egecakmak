@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Chryso.Bll.Services
+namespace Egecakmak.Bll.Services
 {
   public class BllBaseManager
   {

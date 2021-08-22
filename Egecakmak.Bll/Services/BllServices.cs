@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Chryso.Bll.Services
+namespace Egecakmak.Bll.Services
 {
   public static class BllServices
   {

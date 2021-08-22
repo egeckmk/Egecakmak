@@ -1,13 +1,12 @@
 ﻿
 using Egecakmak.Dal.Repositories;
-using Egecakmak.Dal.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GM.NetStandard.DAL.UnitOfWork
+namespace Egecakmak.Dal.UoW
 {
   /// <summary>
   /// base unit for generating repositories and commiting changes

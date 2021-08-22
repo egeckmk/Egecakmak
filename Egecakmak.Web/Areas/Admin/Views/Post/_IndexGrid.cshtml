@@ -1,0 +1,19 @@
+﻿@model IQueryable<PostDto>
+
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Id).Titled("PostId");
+        columns.Add(model => model.Title).Titled("Title");
+        columns.Add(model => model.SubTitle).Titled("Subtitle");
+    })
+    .Empty("No data found")
+    .Pageable(pager =>
+    {
+        pager.PagesToDisplay = 2;
+        pager.RowsPerPage = 2;
+    })
+    .Filterable()
+    .Sortable()
+)

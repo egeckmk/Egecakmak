@@ -1,6 +1,7 @@
 using Egecakmak.Dal.Data;
-using Egecakmak.Dal.Extentions;
+using Egecakmak.Dal.Services;
 using Egecakmak.Domain.Entities;
+using Egecakmak.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,7 @@ namespace Egecakmak.Web
     {
       services.AddControllersWithViews();
       services.AddDalServices();
+      services.AddWebBaseServices();
       services.AddDefaultIdentity<EG_MEMBERS>()
             .AddDefaultUI()
             .AddEntityFrameworkStores<EgecakmakDbContext>();
@@ -78,7 +80,7 @@ namespace Egecakmak.Web
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
       }
-      app.UseHttpsRedirection();
+      //app.UseHttpsRedirection();
       app.UseStaticFiles();
 
       app.UseRouting();
@@ -90,11 +92,15 @@ namespace Egecakmak.Web
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+        endpoints.MapControllerRoute(
                   name: "default",
                   pattern: "{controller=Home}/{action=Index}/{id?}");
         endpoints.MapRazorPages();
 
       });
+
     }
   }
 }

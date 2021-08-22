@@ -1,18 +1,14 @@
-﻿
-@{
-  bool isLogin = false;
-}
-<header>
+﻿<header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom mb-2" style="background-color: #3B5998">
     <div class="container">
-      <img src="~/images/480px-Facebook_logo_(square).png" class="mr-2" style="height:48px; width:48px;" />
+      @*<img src="~/images/480px-Facebook_logo_(square).png" class="mr-2" style="height:48px; width:48px;" />*@
       <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Thecakmak</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
               aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-        @if (!isLogin)
+        @if (!User.Identity.IsAuthenticated)
         {
           <ul class="navbar-nav flex-grow-1 justify-content-end align-items-center">
             <li class="nav-item">
